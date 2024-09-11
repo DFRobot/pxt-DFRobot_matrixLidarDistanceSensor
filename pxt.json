@@ -1,0 +1,28 @@
+{
+    "name": "matrixLidarDistance",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "matrixLidarDistance.ts",
+        "_locales/zh-cn/matrixLidarDistance-strings.json",
+        "_locales/zh-cn/matrixLidarDistance-jsdoc-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "7.0.40",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}

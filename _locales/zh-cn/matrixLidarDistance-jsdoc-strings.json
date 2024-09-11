@@ -1,0 +1,7 @@
+{
+    "matrixLidarDistance.setObstacleDistance":"避障距离的设置，传感器会根据检测前⽅障碍物的距离值做出避障建议。",
+    "matrixLidarDistance.emergencyWarning":"检测前⽅距离值是否已经到达快要碰撞的极限距离，为固定值10cm。如果检测到这个距离，则输出警告。",
+    "matrixLidarDistance.obstacleSuggestion":"该API会根据⼩⻋前⽅检测的数据返回⼩⻋⽅向建议。",
+    "matrixLidarDistance.getObstacleDistance":"通过系统的综合计算，实时检测当前左中右三个⽅向的障碍物距离值。",
+    "matrixLidarDistance.matrixPointOutput":"指定其中⼀个点输出数据，⽤于简化项⽬开发难度，降低数据量。"
+}

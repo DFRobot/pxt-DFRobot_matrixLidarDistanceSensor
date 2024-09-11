@@ -1,0 +1,13 @@
+{
+    "matrixLidarDistance.setObstacleDistance|block":"避障距离 %distance",
+    "matrixLidarDistance.emergencyWarning|block":"紧急避险警告?",
+    "matrixLidarDistance.obstacleSuggestion|block":"避障建议",
+    "matrixLidarDistance.getObstacleDistance|block":"距离检测 %side",
+    "matrixLidarDistance.matrixPointOutput|block":"指定点输出 x：%x y：%y",
+    "matrixLidarDistance.ObstacleSide.Left|block":"左侧",
+    "matrixLidarDistance.ObstacleSide.Front|block":"前方",
+    "matrixLidarDistance.ObstacleSide.Right|block":"右侧",
+
+    "matrixLidarDistance|block": "矩阵激光测距",
+    "{id:category}matrixLidarDistance": "矩阵激光测距"
+}
