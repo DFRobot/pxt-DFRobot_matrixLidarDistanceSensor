@@ -24,6 +24,7 @@ namespace matrixLidarDistance {
     //% distance.min=10 distance.max=50 distance.defl=10
     //% weight=90
     export function setObstacleDistance(distance: number) {
+        return 0
         
     }
 
