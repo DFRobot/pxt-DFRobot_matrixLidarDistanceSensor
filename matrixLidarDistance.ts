@@ -67,6 +67,11 @@ namespace matrixLidarDistance {
         sendBuffer[7] = matrix
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
+        let buf = recvPacket(CMD_SETMODE)
+        if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
+            let len = buf[2] << 8 | buf[3]
+        }
+
     }
 
     /**
