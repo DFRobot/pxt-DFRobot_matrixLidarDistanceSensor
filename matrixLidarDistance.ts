@@ -44,6 +44,23 @@ namespace matrixLidarDistance {
         Right = 3,
     }
 
+    export enum Addr{
+        //% block="0x30"
+        Addr1 = 0x30,
+        //% block="0x31"
+        Addr2 = 0x31,
+        //% block="0x32"
+        Addr3 = 0x32,
+        //% block="0x33"
+        Addr4 = 0x33,
+    }
+    export enum Matrix {
+        //% block="4 X 4"
+        X4 = 1,
+        //% block="8 X 8"
+        X8 = 2,
+    }
+
     /**
      * set device addr
      * @param address to address ,eg: 48
@@ -53,9 +70,37 @@ namespace matrixLidarDistance {
     //% address.min=48 address.max=51 address.defl=48
     //% weight=97
 
-    export function setAddr(address: number, matrix: number):void{
-        _addr = address
+    export function setAddr(address: Addr, matrix: Matrix):void{
+        let _matrix = 4
         let length = 4
+        switch (address){
+            case Addr.Addr1:
+                _addr = address
+                break
+            case Addr.Addr2:
+                _addr = address
+                break
+            case Addr.Addr3:
+                _addr = address
+                break
+            case Addr.Addr4:
+                _addr = address
+                break
+            default:
+                break;
+        }
+        
+        switch (matrix){
+            case Matrix.X4:
+                _matrix = matrix
+                break
+            case Matrix.X8:
+                _matrix = matrix
+                break
+            default:
+                break
+        }
+        
         let sendBuffer = pins.createBuffer(8);
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
@@ -64,7 +109,7 @@ namespace matrixLidarDistance {
         sendBuffer[4] = 0
         sendBuffer[5] = 0
         sendBuffer[6] = 0
-        sendBuffer[7] = matrix
+        sendBuffer[7] = _matrix
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
         let buf = recvPacket(CMD_SETMODE)
@@ -101,7 +146,7 @@ namespace matrixLidarDistance {
      * @param distance to distance ,eg: 10
      */
 
-    //% block="Obstacle avoidance distance %distance"
+    //% block="Obstacle avoidance distance %distance cm"
     //% distance.min=10 distance.max=50 distance.defl=10
     //% weight=90
     export function setObstacleDistance(distance: number):void{
@@ -126,7 +171,7 @@ namespace matrixLidarDistance {
      * Check if the detected distance value has reached the critical distance for an imminent collision, which is a fixed value of 10cm. If this distance is detected, issue a warning.
      */
 
-    //% block="Emergency warning?"
+    //% block="Emergency warning"
     //% weight=80
     export function emergencyWarning(): number {
         return outEmergencyFlag
