@@ -15,6 +15,5 @@
   "matrixLidarDistance.matrixPointOutput|block": "指定点 x: %x y: %y",
   "matrixLidarDistance.obstacleSuggestion|block": "获取建议方向",
   "matrixLidarDistance.setObstacleDistance|block": "避障距离设置 $distance",
-  "matrixLidarDistance|block": "矩阵式激光雷达测距传感器",
-  "{id:category}MatrixLidarDistance": "矩阵激光测距"
+  "matrixLidarDistance|block": "矩阵激光测距"
 }

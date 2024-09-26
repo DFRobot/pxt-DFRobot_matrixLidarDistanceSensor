@@ -15,6 +15,5 @@
   "matrixLidarDistance.matrixPointOutput|block": "Specified point x: %x y: %y",
   "matrixLidarDistance.obstacleSuggestion|block": "Get suggested direction",
   "matrixLidarDistance.setObstacleDistance|block": "Set obstacle avoidance distance $distance",
-  "matrixLidarDistance|block": "Matrix LiDAR Distance",
-  "{id:category}MatrixLidarDistance": "矩阵式激光雷达测距传感器"
+  "matrixLidarDistance|block": "Matrix LiDAR Distance"
 }
