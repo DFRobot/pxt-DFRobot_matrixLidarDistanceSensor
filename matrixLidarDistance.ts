@@ -1,5 +1,3 @@
-
-
 let CMD_SETMODE                 = 1
 let CMD_ALLData                 = 2
 let CMD_FIXED_POINT             = 3
@@ -61,70 +59,20 @@ namespace matrixLidarDistance {
         X8 = 2,
     }
 
+
     /**
-     * set device addr
-     * @param address to address ,eg: 48
+     * Initialize Matrix LiDAR Distance sensor
      */
-
-    //% block="Initialize Matrix LiDAR Distance sensor I2C address %address matrix %matrix"
-    //% address.min=48 address.max=51 address.defl=48
+    //% block="Initialize Matrix LiDAR Distance sensor I2C address $address"
+    //% address.defl=Addr.Addr1
     //% weight=97
-
-    export function setAddr(address: Addr, matrix: Matrix):void{
-        let _matrix = 4
-        let length = 4
-        switch (address){
-            case Addr.Addr1:
-                _addr = address
-                break
-            case Addr.Addr2:
-                _addr = address
-                break
-            case Addr.Addr3:
-                _addr = address
-                break
-            case Addr.Addr4:
-                _addr = address
-                break
-            default:
-                break;
-        }
-        
-        switch (matrix){
-            case Matrix.X4:
-                _matrix = matrix
-                break
-            case Matrix.X8:
-                _matrix = matrix
-                break
-            default:
-                break
-        }
-        
-        let sendBuffer = pins.createBuffer(8);
-        sendBuffer[0] = 0x55
-        sendBuffer[1] = ((length + 1) >> 8) & 0xFF
-        sendBuffer[2] = (length + 1) & 0xFF
-        sendBuffer[3] = CMD_SETMODE
-        sendBuffer[4] = 0
-        sendBuffer[5] = 0
-        sendBuffer[6] = 0
-        sendBuffer[7] = _matrix
-        pins.i2cWriteBuffer(_addr, sendBuffer)
-        basic.pause(10)//10 ms
-        let buf = recvPacket(CMD_SETMODE)
-        if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
-            let len = buf[2] << 8 | buf[3]
-        }
-
-    }
+    export function initialize(address: Addr):void{}
 
     /**
      * Get obstacle avoidance data
      */
     //% block="Get obstacle avoidance data"
     //% weight=95
-    
     export function getData():void{
         let length = 0
         let sendBuffer = pins.createBuffer(4);
@@ -146,7 +94,7 @@ namespace matrixLidarDistance {
      * @param distance to distance ,eg: 10
      */
 
-    //% block="Obstacle avoidance distance %distance cm"
+    //% block="Set obstacle avoidance distance $distance"
     //% distance.min=10 distance.max=50 distance.defl=10
     //% weight=90
     export function setObstacleDistance(distance: number):void{
@@ -171,7 +119,7 @@ namespace matrixLidarDistance {
      * Check if the detected distance value has reached the critical distance for an imminent collision, which is a fixed value of 10cm. If this distance is detected, issue a warning.
      */
 
-    //% block="Emergency warning"
+    //% block="Get hazard warning"
     //% weight=80
     export function emergencyWarning(): number {
         return outEmergencyFlag
@@ -181,7 +129,7 @@ namespace matrixLidarDistance {
      * The API will provide steering suggestions for the car based on the data detected in front of the vehicle.
     */
 
-    //% block="Suggestions for obstacle avoidance"
+    //% block="Get suggested direction"
     //% weight=70
     export function obstacleSuggestion(): number {
         return outDir
@@ -231,7 +179,7 @@ namespace matrixLidarDistance {
      * @param y to y ,eg: 3
     */
 
-    //% block="matrix Output x %x y %y"
+    //% block="Specified point x: %x y: %y"
     //% weight=50
     //% x.min=0 x.max=7 x.defl=3
     //% y.min=0 y.max=7 y.defl=3
