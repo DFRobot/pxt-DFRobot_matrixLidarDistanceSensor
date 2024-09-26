@@ -1,0 +1,20 @@
+{
+  "matrixLidarDistance.Addr.Addr1|block": "0x30",
+  "matrixLidarDistance.Addr.Addr2|block": "0x31",
+  "matrixLidarDistance.Addr.Addr3|block": "0x32",
+  "matrixLidarDistance.Addr.Addr4|block": "0x33",
+  "matrixLidarDistance.Matrix.X4|block": "4 X 4",
+  "matrixLidarDistance.Matrix.X8|block": "8 X 8",
+  "matrixLidarDistance.ObstacleSide.Front|block": "前方",
+  "matrixLidarDistance.ObstacleSide.Left|block": "左侧",
+  "matrixLidarDistance.ObstacleSide.Right|block": "右侧",
+  "matrixLidarDistance.emergencyWarning|block": "获取避险警告",
+  "matrixLidarDistance.getData|block": "获取避障数据",
+  "matrixLidarDistance.getObstacleDistance|block": "距离检测 %side",
+  "matrixLidarDistance.initialize|block": "初始化激光测距传感器 I2C地址 $address",
+  "matrixLidarDistance.matrixPointOutput|block": "指定点 x: %x y: %y",
+  "matrixLidarDistance.obstacleSuggestion|block": "获取建议方向",
+  "matrixLidarDistance.setObstacleDistance|block": "避障距离设置 $distance",
+  "matrixLidarDistance|block": "矩阵式激光雷达测距传感器",
+  "{id:category}MatrixLidarDistance": "矩阵激光测距"
+}

@@ -1,0 +1,20 @@
+{
+  "matrixLidarDistance.Addr.Addr1|block": "0x30",
+  "matrixLidarDistance.Addr.Addr2|block": "0x31",
+  "matrixLidarDistance.Addr.Addr3|block": "0x32",
+  "matrixLidarDistance.Addr.Addr4|block": "0x33",
+  "matrixLidarDistance.Matrix.X4|block": "4 X 4",
+  "matrixLidarDistance.Matrix.X8|block": "8 X 8",
+  "matrixLidarDistance.ObstacleSide.Front|block": "Front",
+  "matrixLidarDistance.ObstacleSide.Left|block": "Left",
+  "matrixLidarDistance.ObstacleSide.Right|block": "Right",
+  "matrixLidarDistance.emergencyWarning|block": "Get hazard warning",
+  "matrixLidarDistance.getData|block": "Get obstacle avoidance data",
+  "matrixLidarDistance.getObstacleDistance|block": "Distance detection %side",
+  "matrixLidarDistance.initialize|block": "Initialize Matrix LiDAR Distance sensor I2C address $address",
+  "matrixLidarDistance.matrixPointOutput|block": "Specified point x: %x y: %y",
+  "matrixLidarDistance.obstacleSuggestion|block": "Get suggested direction",
+  "matrixLidarDistance.setObstacleDistance|block": "Set obstacle avoidance distance $distance",
+  "matrixLidarDistance|block": "Matrix LiDAR Distance",
+  "{id:category}MatrixLidarDistance": "矩阵式激光雷达测距传感器"
+}

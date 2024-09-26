@@ -11,8 +11,12 @@
         "main.ts",
         "README.md",
         "matrixLidarDistance.ts",
-        "_locales/zh-cn/matrixLidarDistance-strings.json",
-        "_locales/zh-cn/matrixLidarDistance-jsdoc-strings.json"
+        "_locales/en/matrixLidarDistance-strings.json",
+        "_locales/en/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/zh-CN/matrixLidarDistance-strings.json",
+        "_locales/zh-CN/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/zh-TW/matrixLidarDistance-strings.json",
+        "_locales/zh-TW/matrixLidarDistance-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

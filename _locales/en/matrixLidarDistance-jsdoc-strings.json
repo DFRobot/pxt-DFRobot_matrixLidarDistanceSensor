@@ -1,0 +1,13 @@
+{
+  "matrixLidarDistance.emergencyWarning": "Check if the detected distance value has reached the critical distance for an imminent collision, which is a fixed value of 10cm. If this distance is detected, issue a warning.",
+  "matrixLidarDistance.getData": "Get obstacle avoidance data",
+  "matrixLidarDistance.getObstacleDistance": "By the system's comprehensive calculation, the distance values of obstacles in the current left, center, and right directions are detected in real time.",
+  "matrixLidarDistance.getObstacleDistance|param|side": "to side ,eg: ObstacleSide.Left",
+  "matrixLidarDistance.initialize": "Initialize Matrix LiDAR Distance sensor",
+  "matrixLidarDistance.matrixPointOutput": "Specify one of the point output data, which is used to simplify the difficulty of project development and reduce the amount of data.",
+  "matrixLidarDistance.matrixPointOutput|param|x": "to x ,eg: 3",
+  "matrixLidarDistance.matrixPointOutput|param|y": "to y ,eg: 3",
+  "matrixLidarDistance.obstacleSuggestion": "The API will provide steering suggestions for the car based on the data detected in front of the vehicle.",
+  "matrixLidarDistance.setObstacleDistance": "For the setting of obstacle avoidance distance, the sensor will make suggestions for obstacle avoidance based on the distance value of detecting obstacles in front of it.",
+  "matrixLidarDistance.setObstacleDistance|param|distance": "to distance ,eg: 10"
+}

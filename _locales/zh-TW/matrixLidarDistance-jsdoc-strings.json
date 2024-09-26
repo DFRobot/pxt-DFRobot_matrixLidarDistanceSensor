@@ -1,0 +1,13 @@
+{
+  "matrixLidarDistance.emergencyWarning": "檢測前方距離值是否已經到達快要碰撞的極限距離，為固定值10cm。如果檢測到這個距離，則輸出警告。",
+  "matrixLidarDistance.getData": "統一獲取數據的一個模塊",
+  "matrixLidarDistance.getObstacleDistance": "通過系統的綜合計算，實時檢測當前左中右三個方向的障礙物距離值。",
+  "matrixLidarDistance.getObstacleDistance|param|side": "to side ,eg: ObstacleSide.Left",
+  "matrixLidarDistance.initialize": "初始化傳感器的I2C及其它參數配置",
+  "matrixLidarDistance.matrixPointOutput": "指定其中一個點輸出數據，用於簡化項目開發難度，降低數據量。",
+  "matrixLidarDistance.matrixPointOutput|param|x": "to x ,eg: 3",
+  "matrixLidarDistance.matrixPointOutput|param|y": "to y ,eg: 3",
+  "matrixLidarDistance.obstacleSuggestion": "該API會根據小車前方檢測的數據返回小車方向建議。",
+  "matrixLidarDistance.setObstacleDistance": "避障距離的設置，傳感器會根據檢測前方障礙物的距離值做出避障建議。",
+  "matrixLidarDistance.setObstacleDistance|param|distance": "to distance ,eg: 10"
+}
