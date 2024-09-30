@@ -11,7 +11,7 @@
   "matrixLidarDistance.emergencyWarning|block": "Get hazard warning",
   "matrixLidarDistance.getData|block": "Get obstacle avoidance data",
   "matrixLidarDistance.getObstacleDistance|block": "Distance detection %side",
-  "matrixLidarDistance.initialize|block": "Initialize Matrix LiDAR Distance sensor I2C address $address",
+  "matrixLidarDistance.initialize|block": "Initialize Matrix LiDAR Distance sensor I2C address $address $matrix",
   "matrixLidarDistance.matrixPointOutput|block": "Specified point x: %x y: %y distance (cm)",
   "matrixLidarDistance.obstacleSuggestion|block": "Get suggested direction",
   "matrixLidarDistance.setObstacleDistance|block": "Set obstacle avoidance distance $distance",

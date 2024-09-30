@@ -11,7 +11,7 @@
   "matrixLidarDistance.emergencyWarning|block": "獲取避險警告",
   "matrixLidarDistance.getData|block": "獲取避障數據",
   "matrixLidarDistance.getObstacleDistance|block": "距離檢測 %side cm",
-  "matrixLidarDistance.initialize|block": "初始化激光測距傳感器 I2C地址 $address",
+  "matrixLidarDistance.initialize|block": "初始化激光測距傳感器 I2C地址 $address $matrix",
   "matrixLidarDistance.matrixPointOutput|block": "指定點 x: %x y: %y 的距離(cm)",
   "matrixLidarDistance.obstacleSuggestion|block": "獲取建議方向",
   "matrixLidarDistance.setObstacleDistance|block": "避障距離設置 $distance cm",

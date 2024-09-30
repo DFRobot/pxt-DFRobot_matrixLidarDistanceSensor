@@ -54,19 +54,38 @@ namespace matrixLidarDistance {
     }
     export enum Matrix {
         //% block="4 X 4"
-        X4 = 1,
+        X4 = 4,
         //% block="8 X 8"
-        X8 = 2,
+        X8 = 8,
     }
 
 
     /**
      * Initialize Matrix LiDAR Distance sensor
      */
-    //% block="Initialize Matrix LiDAR Distance sensor I2C address $address"
+    //% block="Initialize Matrix LiDAR Distance sensor I2C address $address $matrix"
     //% address.defl=Addr.Addr1
     //% weight=97
-    export function initialize(address: Addr):void{}
+    export function initialize(address: Addr, matrix: Matrix ):void{
+        _addr = address
+        let length = 4
+        let sendBuffer = pins.createBuffer(8);
+        sendBuffer[0] = 0x55
+        sendBuffer[1] = ((length + 1) >> 8) & 0xFF
+        sendBuffer[2] = (length + 1) & 0xFF
+        sendBuffer[3] = CMD_SETMODE
+        sendBuffer[4] = 0
+        sendBuffer[5] = 0
+        sendBuffer[6] = 0 
+        sendBuffer[7] = matrix
+        pins.i2cWriteBuffer(_addr, sendBuffer)
+        basic.pause(10)//10 ms
+        let buf = recvPacket(CMD_CONFIG_AVOID)
+        if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
+            let len = buf[2] << 8 | buf[3]
+        }
+
+    }
 
     /**
      * Get obstacle avoidance data
