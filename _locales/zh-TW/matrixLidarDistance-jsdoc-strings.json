@@ -7,7 +7,7 @@
   "matrixLidarDistance.matrixPointOutput": "指定其中一個點輸出數據，用於簡化項目開發難度，降低數據量。",
   "matrixLidarDistance.matrixPointOutput|param|x": "to x ,eg: 3",
   "matrixLidarDistance.matrixPointOutput|param|y": "to y ,eg: 3",
-  "matrixLidarDistance.obstacleSuggestion": "該API會根據小車前方檢測的數據返回小車方向建議。",
+  "matrixLidarDistance.obstacleSuggestion": "該API會根據小車前方檢測的數據返回小車方向建議。1:左,2:右,3:直行",
   "matrixLidarDistance.setObstacleDistance": "避障距離的設置，傳感器會根據檢測前方障礙物的距離值做出避障建議。",
   "matrixLidarDistance.setObstacleDistance|param|distance": "to distance ,eg: 10"
 }
