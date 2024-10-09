@@ -188,7 +188,8 @@ namespace matrixLidarDistance {
 
             }
         }
-        return ret
+        ret /= 10
+        return Math.round(ret)
         
     }
 

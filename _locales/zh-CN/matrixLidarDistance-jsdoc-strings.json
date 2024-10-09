@@ -8,6 +8,6 @@
   "matrixLidarDistance.matrixPointOutput|param|x": "to x ,eg: 3",
   "matrixLidarDistance.matrixPointOutput|param|y": "to y ,eg: 3",
   "matrixLidarDistance.obstacleSuggestion": "该API会根据⼩⻋前⽅检测的数据返回⼩⻋⽅向建议。1:左,2:右,3:直行",
-  "matrixLidarDistance.setObstacleDistance": "避障距离的设置，传感器会根据检测前⽅障碍物的距离值做出避障建议。",
+  "matrixLidarDistance.setObstacleDistance": "避障距离的设置，传感器会根据检测前⽅障碍物的距离值做出避障建议,只能在 4X4 模式下使用",
   "matrixLidarDistance.setObstacleDistance|param|distance": "to distance ,eg: 10"
 }
