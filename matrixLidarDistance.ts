@@ -199,7 +199,7 @@ namespace matrixLidarDistance {
      * @param y to y ,eg: 3
     */
 
-    //% block="Specified point x: %x y: %y"
+    //% block="Specified point x: %x y: %y mm"
     //% weight=50
     //% x.min=0 x.max=7 x.defl=3
     //% y.min=0 y.max=7 y.defl=3

@@ -12,7 +12,7 @@
   "matrixLidarDistance.getData|block": "获取避障数据",
   "matrixLidarDistance.getObstacleDistance|block": "距离检测 %side cm",
   "matrixLidarDistance.initialize|block": "初始化激光测距传感器 I2C地址 $address $matrix",
-  "matrixLidarDistance.matrixPointOutput|block": "指定点 x: %x y: %y 的距离(cm)",
+  "matrixLidarDistance.matrixPointOutput|block": "指定点 x: %x y: %y 的距离(mm)",
   "matrixLidarDistance.obstacleSuggestion|block": "获取建议方向",
   "matrixLidarDistance.setObstacleDistance|block": "避障距离设置 $distance cm",
   "matrixLidarDistance|block": "矩阵激光测距"
