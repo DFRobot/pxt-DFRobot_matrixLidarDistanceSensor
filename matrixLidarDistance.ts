@@ -114,7 +114,7 @@ namespace matrixLidarDistance {
      */
 
     //% block="Set obstacle avoidance distance $distance"
-    //% distance.min=10 distance.max=50 distance.defl=10
+    //% distance.min=10 distance.max=50 distance.defl=20
     //% weight=90
     export function setObstacleDistance(distance: number):void{
         let length = 2
