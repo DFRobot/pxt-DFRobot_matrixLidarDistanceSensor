@@ -164,11 +164,12 @@ namespace matrixLidarDistance {
     export function getObstacleDistance(side: ObstacleSide): number {
         let length = 0
         let ret = 0
-        let sendBuffer = pins.createBuffer(4);
+        let sendBuffer = pins.createBuffer(5);
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
         sendBuffer[2] = (length + 1) & 0xFF
         sendBuffer[3] = CMD_OBSTACLE_DISTANCE
+        sendBuffer[4] = 1
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
         let buf = recvPacket(CMD_OBSTACLE_DISTANCE)
