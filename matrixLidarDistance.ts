@@ -43,14 +43,14 @@ namespace matrixLidarDistance {
     }
 
     export enum Addr{
-        //% block="0x30"
-        Addr1 = 0x30,
-        //% block="0x31"
-        Addr2 = 0x31,
-        //% block="0x32"
-        Addr3 = 0x32,
         //% block="0x33"
         Addr4 = 0x33,
+        //% block="0x32"
+        Addr3 = 0x32,
+        //% block="0x31"
+        Addr2 = 0x31,
+        //% block="0x30"
+        Addr1 = 0x30,
     }
     export enum Matrix {
         //% block="4 X 4"
