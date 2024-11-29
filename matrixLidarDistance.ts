@@ -63,7 +63,7 @@ namespace matrixLidarDistance {
     /**
      * Initialize Matrix LiDAR Distance sensor
      */
-    //% block="Initialize Matrix LiDAR Distance sensor I2C address $address $matrix"
+    //% block="Initialize the I2C address $address of the laserranging sensor in $matrix matrix mode"
     //% address.defl=Addr.Addr1
     //% weight=97
     export function initialize(address: Addr, matrix: Matrix ):void{
@@ -114,11 +114,11 @@ namespace matrixLidarDistance {
      */
 
     //% block="Set obstacle avoidance distance $distance"
-    //% distance.min=10 distance.max=50 distance.defl=20
+    //% distance.min=100 distance.max=500 distance.defl=200
     //% weight=90
     export function setObstacleDistance(distance: number):void{
         let length = 2
-        let _wall = distance * 10
+        let _wall = distance
         let sendBuffer = pins.createBuffer(6);
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
@@ -164,12 +164,11 @@ namespace matrixLidarDistance {
     export function getObstacleDistance(side: ObstacleSide): number {
         let length = 0
         let ret = 0
-        let sendBuffer = pins.createBuffer(5);
+        let sendBuffer = pins.createBuffer(4);
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
         sendBuffer[2] = (length + 1) & 0xFF
         sendBuffer[3] = CMD_OBSTACLE_DISTANCE
-        sendBuffer[4] = 1
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
         let buf = recvPacket(CMD_OBSTACLE_DISTANCE)
@@ -189,8 +188,7 @@ namespace matrixLidarDistance {
 
             }
         }
-        ret /= 10
-        return Math.round(ret)
+        return ret
         
     }
 
