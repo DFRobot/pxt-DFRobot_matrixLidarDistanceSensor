@@ -61,7 +61,8 @@ namespace matrixLidarDistance {
 
 
     /**
-     * Initialize Matrix LiDAR Distance sensor
+     * Initialize the I2C configuration and matrix mode configuration of the sensor. 
+     * In the obstacle avoidance mode, only the 4*4 mode is supported in order to increase the frame rate.
      */
     //% block="Initialize the I2C address $address of the laserranging sensor in $matrix matrix mode"
     //% address.defl=Addr.Addr1
@@ -88,9 +89,11 @@ namespace matrixLidarDistance {
     }
 
     /**
-     * Get obstacle avoidance data
+     * Acquire the obstacle avoidance related data that has undergone 
+     * comprehensive internal calculations once. The matrix mode needs 
+     * to be set to the 4*4 mode. The 8*8 mode will cause data errors or no data.
      */
-    //% block="Get obstacle avoidance data"
+    //% block="Acquire obstacle avoidance data"
     //% weight=95
     export function getData():void{
         let length = 0
@@ -109,11 +112,16 @@ namespace matrixLidarDistance {
     }
     
     /**
-     * For the setting of obstacle avoidance distance, the sensor will make suggestions for obstacle avoidance based on the distance value of detecting obstacles in front of it.
-     * @param distance to distance ,eg: 10
+     * Customize the distance value of the obstacle that triggers the 
+     * "direction indication". Since the laser sensor has a detection range of 60 degrees and some 
+     * laser beams may be directed towards the ground, when it is used on MaqueenPlus, 
+     * the maximum set distance should not exceed 200 mm, otherwise the ground may be detected, 
+     * resulting in incorrect data. It is also possible to avoid the laser beams hitting the ground by 
+     * increasing the installation distance.
+     * @param distance to distance ,eg: 200
      */
 
-    //% block="Set obstacle avoidance distance $distance"
+    //% block="Customize the obstacle avoidance distance to $distance (mm)"
     //% distance.min=100 distance.max=500 distance.defl=200
     //% weight=90
     export function setObstacleDistance(distance: number):void{
@@ -135,31 +143,38 @@ namespace matrixLidarDistance {
     }
 
     /**
-     * Check if the detected distance value has reached the critical distance for an imminent collision, which is a fixed value of 10cm. If this distance is detected, issue a warning.
+     * When an obstacle within 100 mm is detected, it will output 1; otherwise, it will output 0.
      */
 
-    //% block="Get hazard warning"
+    //% block="Warn for close range within 100 mm"
     //% weight=80
     export function emergencyWarning(): number {
         return outEmergencyFlag
     }
 
     /**
-     * The API will provide steering suggestions for the car based on the data detected in front of the vehicle.
+     * According to the settings of "customized obstacle avoidance distance", 
+     * when an obstacle is detected in front, prompt the possible passing directions. 
+     * Return values: 1 for the left side, 2 for the right side, 3 for the front.
     */
 
-    //% block="Get suggested direction"
+    //% block="Direction indication in obstacle avoidance mode"
     //% weight=70
     export function obstacleSuggestion(): number {
         return outDir
     }
 
     /**
-     * By the system's comprehensive calculation, the distance values of obstacles in the current left, center, and right directions are detected in real time.
+     * The black is operating in the obstacle avoidance mode. 
+     * The data has undergone comprehensive calculations inside on the matrix laser data. 
+     * It can detect the obstacle situations in the left, middle and right directions, 
+     * which is convenient for flexible applications.  
+     * The matrix mode needs to be set to the 4*4 mode. 
+     * The 8*8 mode will cause data errors or no data.
      * @param side to side ,eg: ObstacleSide.Left
     */
 
-    //% block="Distance detection %side"
+    //% block="Distance detection in obstacle avoidance mode %side (mm)"
     //% weight=60
     export function getObstacleDistance(side: ObstacleSide): number {
         let length = 0
@@ -193,12 +208,13 @@ namespace matrixLidarDistance {
     }
 
     /**
-     * Specify one of the point output data, which is used to simplify the difficulty of project development and reduce the amount of data.
+     * The black is an independent one working in the matrix mode. It supports both 4*4 and 8*8 modes. 
+     * It can read the distance values detected by any of the 64 laser beams.
      * @param x to x ,eg: 3
      * @param y to y ,eg: 3
-    */
+     */
 
-    //% block="Specified point x: %x y: %y mm"
+    //% block="Measure the distance of the specified point in matrix mode x: %x y: %y mm"
     //% weight=50
     //% x.min=0 x.max=7 x.defl=3
     //% y.min=0 y.max=7 y.defl=3
