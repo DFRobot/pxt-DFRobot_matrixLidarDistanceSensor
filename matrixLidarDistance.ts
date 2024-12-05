@@ -29,7 +29,7 @@ let outEmergencyFlag = 0
 
 
 //% block="Matrix LiDAR Distance"
-//% weight=100 color=#5b3fe8 icon="\uf0b2"
+//% weight=100 color=#5b3fe8 icon="\uf124"
 //% groups="['Distance measurement', 'Obstacle Avoidance']"
 namespace matrixLidarDistance {
 
