@@ -26,6 +26,9 @@ let ERR_CODE_I2C_ADRESS         = 0x0A
 let _addr = 0x30
 let outDir = 0
 let outEmergencyFlag = 0
+let outLeft = 0
+let outFront = 0
+let outRight = 0
 
 
 //% block="Matrix LiDAR Distance"
@@ -52,11 +55,12 @@ namespace matrixLidarDistance {
         //% block="0x30"
         Addr1 = 0x30,
     }
+    
     export enum Matrix {
-        //% block="4 X 4"
-        X4 = 4,
-        //% block="8 X 8"
-        X8 = 8,
+        //% block="Obstacle avoidance"
+        OBS = 4,
+        //% block="Matrix"
+        MAT = 8,
     }
 
 
@@ -70,12 +74,22 @@ namespace matrixLidarDistance {
     export function initialize(address: Addr, matrix: Matrix ):void{
         _addr = address
         let length = 4
-        let sendBuffer = pins.createBuffer(8);
+        let sendBuffer = pins.createBuffer(8)
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
         sendBuffer[2] = (length + 1) & 0xFF
         sendBuffer[3] = CMD_SETMODE
-        sendBuffer[4] = 0
+        switch (matrix){
+            case Matrix.OBS:
+                sendBuffer[4] = 1
+            break
+            case Matrix.MAT:
+                sendBuffer[4] = 0
+            break
+            default:
+            break
+        }
+       
         sendBuffer[5] = 0
         sendBuffer[6] = 0 
         sendBuffer[7] = matrix
@@ -108,6 +122,9 @@ namespace matrixLidarDistance {
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
             outDir = buf[4]
             outEmergencyFlag = buf[5]
+            outLeft = buf[6] | buf[7] << 8
+            outFront = buf[8] | buf[9] << 8
+            outRight = buf[10] | buf[11] << 8
         }
     }
     
@@ -177,8 +194,9 @@ namespace matrixLidarDistance {
     //% block="Distance detection in obstacle avoidance mode %side (mm)"
     //% weight=60
     export function getObstacleDistance(side: ObstacleSide): number {
+        /*
         let length = 0
-        let ret = 0
+        
         let sendBuffer = pins.createBuffer(4);
         sendBuffer[0] = 0x55
         sendBuffer[1] = ((length + 1) >> 8) & 0xFF
@@ -202,9 +220,22 @@ namespace matrixLidarDistance {
                     break
 
             }
+        }*/
+        let ret = 0
+        switch (side) {
+            case ObstacleSide.Left:
+                ret = outLeft
+                break
+            case ObstacleSide.Front:
+                ret = outFront
+                break
+            case ObstacleSide.Right:
+                ret = outRight
+                break
+            default:
+                break
         }
         return ret
-        
     }
 
     /**
@@ -238,7 +269,7 @@ namespace matrixLidarDistance {
     }
 
     function recvPacket(cmd: number): Buffer{
-        let sendBuffer = pins.createBuffer(10);
+        let sendBuffer = pins.createBuffer(20);
         let time = control.millis()
         while (control.millis() - time < DEBUG_TIMEOUT_MS)
         {
