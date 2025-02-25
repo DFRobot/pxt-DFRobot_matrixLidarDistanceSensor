@@ -162,12 +162,12 @@ namespace matrixLidarDistance {
     /**
      * When an obstacle within 100 mm is detected, it will output 1; otherwise, it will output 0.
      */
-
+    /*
     //% block="Warn for close range within 100 mm"
     //% weight=80
     export function emergencyWarning(): number {
         return outEmergencyFlag
-    }
+    }*/
 
     /**
      * According to the settings of "customized obstacle avoidance distance", 
