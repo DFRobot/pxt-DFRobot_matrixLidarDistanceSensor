@@ -16,7 +16,19 @@
         "_locales/zh-CN/matrixLidarDistance-strings.json",
         "_locales/zh-CN/matrixLidarDistance-jsdoc-strings.json",
         "_locales/zh-TW/matrixLidarDistance-strings.json",
-        "_locales/zh-TW/matrixLidarDistance-jsdoc-strings.json"
+        "_locales/zh-TW/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/ko/matrixLidarDistance-strings.json",
+        "_locales/ko/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/de/matrixLidarDistance-strings.json",
+        "_locales/de/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/es/matrixLidarDistance-strings.json",
+        "_locales/es/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/fr/matrixLidarDistance-strings.json",
+        "_locales/fr/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/nl/matrixLidarDistance-strings.json",
+        "_locales/nl/matrixLidarDistance-jsdoc-strings.json",
+        "_locales/cs/matrixLidarDistance-strings.json",
+        "_locales/cs/matrixLidarDistance-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
