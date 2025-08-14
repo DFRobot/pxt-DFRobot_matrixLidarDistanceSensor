@@ -95,7 +95,7 @@ namespace matrixLidarDistance {
         sendBuffer[7] = matrix
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
-        let buf = recvPacket(CMD_CONFIG_AVOID)
+        let buf = recvPacket(_addr, CMD_CONFIG_AVOID)
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
             let len = buf[2] << 8 | buf[3]
         }
@@ -118,7 +118,7 @@ namespace matrixLidarDistance {
         sendBuffer[3] = CMD_AVOID_OBSTACLE
         pins.i2cWriteBuffer(_addr, sendBuffer)
         basic.pause(10)//10 ms
-        let buf = recvPacket(CMD_AVOID_OBSTACLE)
+        let buf = recvPacket(_addr, CMD_AVOID_OBSTACLE)
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
             outDir = buf[4]
             outEmergencyFlag = buf[5]
@@ -153,7 +153,7 @@ namespace matrixLidarDistance {
         sendBuffer[5] = _wall & 0xff
         pins.i2cWriteBuffer(_addr,sendBuffer)
         basic.pause(10)//10 ms
-        let buf = recvPacket(CMD_CONFIG_AVOID)
+        let buf = recvPacket(_addr, CMD_CONFIG_AVOID)
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS){
             let len = buf[2] << 8 | buf[3]
         }
@@ -262,29 +262,29 @@ namespace matrixLidarDistance {
         sendBuffer[5] = y
         pins.i2cWriteBuffer(address, sendBuffer)
         basic.pause(10)//10 ms
-        let buf = recvPacket(CMD_FIXED_POINT)
+        let buf = recvPacket(address, CMD_FIXED_POINT)
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
             ret = buf[4] | buf[5] << 8
         }
         return ret
     }
 
-    function recvPacket(cmd: number): Buffer{
+    function recvPacket(addr: number,cmd: number): Buffer{
         let sendBuffer = pins.createBuffer(20);
         let time = control.millis()
         while (control.millis() - time < DEBUG_TIMEOUT_MS)
         {
-            let status = pins.i2cReadNumber(_addr, NumberFormat.Int8LE)
+            let status = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
             if (status != 0xff){
                 if (status == STATUS_SUCCESS || status == STATUS_FAILED){
                     sendBuffer[0] = status
-                    let command = pins.i2cReadNumber(_addr, NumberFormat.Int8LE)
+                    let command = pins.i2cReadNumber(addr, NumberFormat.Int8LE)
                     sendBuffer[1] = command
                     //serial.writeValue("cmd", command)
                     if (command != cmd){
                         return sendBuffer
                     }
-                    let lenBuf = pins.i2cReadBuffer(_addr,2)
+                    let lenBuf = pins.i2cReadBuffer(addr,2)
                     let len  = lenBuf[1] << 8 | lenBuf[0]
                     //serial.writeValue("len", len)
                     sendBuffer[2] = lenBuf[0]
@@ -292,7 +292,7 @@ namespace matrixLidarDistance {
                     if(len == 0){
                         return sendBuffer
                     }
-                    let dataBuf = pins.i2cReadBuffer(_addr, len)
+                    let dataBuf = pins.i2cReadBuffer(addr, len)
                     for(let i = 0;i < len;i++){
                         sendBuffer[4+i] = dataBuf[i]
                     }
