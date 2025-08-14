@@ -12,7 +12,7 @@
   "matrixLidarDistance.getData|block": "Obstakelvermijdingsgegevens verkrijgen",
   "matrixLidarDistance.getObstacleDistance|block": "Afstandsdetectie in obstakelvermijdingsmodus %side (mm)",
   "matrixLidarDistance.initialize|block": "Initialiseer I2C-adres $address van laserafstandssensor in matrixmodus $matrix",
-  "matrixLidarDistance.matrixPointOutput|block": "Meet afstand van gespecificeerd punt in matrixmodus x: %x y: %y (mm)",
+  "matrixLidarDistance.matrixPointOutput|block": "$address Meet afstand van gespecificeerd punt in matrixmodus x: %x y: %y (mm)",
   "matrixLidarDistance.obstacleSuggestion|block": "Richtingsindicatie in obstakelvermijdingsmodus",
   "matrixLidarDistance.setObstacleDistance|block": "Pas obstakelvermijdingsafstand aan naar $distance (mm)",
   "matrixLidarDistance|block": "Matrix LiDAR Afstand"

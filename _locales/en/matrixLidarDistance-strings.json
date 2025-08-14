@@ -12,7 +12,7 @@
   "matrixLidarDistance.getData|block": "Acquire obstacle avoidance data",
   "matrixLidarDistance.getObstacleDistance|block": "Distance detection in obstacle avoidance mode %side (mm)",
   "matrixLidarDistance.initialize|block": "Initialize the I2C address $address of the laser ranging sensor in $matrix matrix mode",
-  "matrixLidarDistance.matrixPointOutput|block": "Measure the distance of the specified point in matrix mode x: %x y: %y (mm)",
+  "matrixLidarDistance.matrixPointOutput|block": "$address Measure the distance of the specified point in matrix mode x: %x y: %y (mm)",
   "matrixLidarDistance.obstacleSuggestion|block": "Direction indication in obstacle avoidance mode",
   "matrixLidarDistance.setObstacleDistance|block": "Customize the obstacle avoidance distance to $distance (mm)",
   "matrixLidarDistance|block": "Matrix LiDAR Distance"

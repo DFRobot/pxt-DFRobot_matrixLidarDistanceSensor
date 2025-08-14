@@ -12,7 +12,7 @@
   "matrixLidarDistance.getData|block": "Hindernisvermeidungsdaten abrufen",
   "matrixLidarDistance.getObstacleDistance|block": "Hindernisvermeidungsmodus Entfernungsmessung %side (mm)",
   "matrixLidarDistance.initialize|block": "Laser-Entfernungsmesser I2C-Adresse $address Matrix-Modus $matrix initialisieren",
-  "matrixLidarDistance.matrixPointOutput|block": "Matrix-Modus spezifischer Punkt Entfernungsmessung x: %x y: %y (mm)",
+  "matrixLidarDistance.matrixPointOutput|block": "$address Matrix-Modus spezifischer Punkt Entfernungsmessung x: %x y: %y (mm)",
   "matrixLidarDistance.obstacleSuggestion|block": "Hindernisvermeidungsmodus Richtungsanzeige",
   "matrixLidarDistance.setObstacleDistance|block": "Hindernisvermeidungsmodus benutzerdefinierte Vermeidungsentfernung $distance (mm)",
   "matrixLidarDistance|block": "Matrix LiDAR Entfernung"

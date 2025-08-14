@@ -12,7 +12,7 @@
   "matrixLidarDistance.getData|block": "Získat data o vyhýbání překážkám",
   "matrixLidarDistance.getObstacleDistance|block": "Detekce vzdálenosti v režimu vyhýbání překážkám %side (mm)",
   "matrixLidarDistance.initialize|block": "Inicializovat I2C adresu $address laserového senzoru vzdálenosti v režimu matice $matrix",
-  "matrixLidarDistance.matrixPointOutput|block": "Měřit vzdálenost zadaného bodu v režimu matice x: %x y: %y (mm)",
+  "matrixLidarDistance.matrixPointOutput|block": "$address Měřit vzdálenost zadaného bodu v režimu matice x: %x y: %y (mm)",
   "matrixLidarDistance.obstacleSuggestion|block": "Indikace směru v režimu vyhýbání překážkám",
   "matrixLidarDistance.setObstacleDistance|block": "Přizpůsobit vzdálenost vyhýbání překážkám na $distance (mm)",
   "matrixLidarDistance|block": "Matice LiDAR Vzdálenost"

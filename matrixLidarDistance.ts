@@ -245,11 +245,12 @@ namespace matrixLidarDistance {
      * @param y to y ,eg: 3
      */
 
-    //% block="Measure the distance of the specified point in matrix mode x: %x y: %y mm"
+    //% block="$address Measure the distance of the specified point in matrix mode x: %x y: %y mm"
     //% weight=50
+    //% address.defl=Addr.Addr1
     //% x.min=0 x.max=7 x.defl=3
     //% y.min=0 y.max=7 y.defl=3
-    export function matrixPointOutput(x: number, y: number): number {
+    export function matrixPointOutput(address: Addr, x: number, y: number): number {
         let length = 2
         let ret = 0
         let sendBuffer = pins.createBuffer(6);
@@ -259,7 +260,7 @@ namespace matrixLidarDistance {
         sendBuffer[3] = CMD_FIXED_POINT
         sendBuffer[4] = x
         sendBuffer[5] = y
-        pins.i2cWriteBuffer(_addr, sendBuffer)
+        pins.i2cWriteBuffer(address, sendBuffer)
         basic.pause(10)//10 ms
         let buf = recvPacket(CMD_FIXED_POINT)
         if (buf[0] == ERR_CODE_NONE || buf[0] == STATUS_SUCCESS) {
